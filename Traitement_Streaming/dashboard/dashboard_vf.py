@@ -16,6 +16,7 @@ DB_URL = (
     f"{st.secrets['DB_HOST']}:"
     f"{st.secrets['DB_PORT']}/"
     f"{st.secrets['DB_NAME']}"
+    "?sslmode=require"
 )
 
 engine = create_engine(DB_URL, pool_pre_ping=True)
