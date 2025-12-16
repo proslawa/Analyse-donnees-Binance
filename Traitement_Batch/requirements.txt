@@ -1,0 +1,5 @@
+pyspark==4.0.1
+pandas>=2.0.0
+matplotlib>=3.8.0
+requests>=2.31.0
+psycopg2-binary>=2.9.9
