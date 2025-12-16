@@ -10,7 +10,14 @@ import numpy as np
 from PIL import Image
 
 # ================= CONFIG =================
-DB_URL = "postgresql+psycopg2://sqlpad:sqlpad@localhost:5432/sqlpad"
+DB_URL = (
+    f"postgresql+psycopg2://{st.secrets['DB_USER']}:"
+    f"{st.secrets['DB_PASSWORD']}@"
+    f"{st.secrets['DB_HOST']}:"
+    f"{st.secrets['DB_PORT']}/"
+    f"{st.secrets['DB_NAME']}"
+)
+
 engine = create_engine(DB_URL, pool_pre_ping=True)
 
 st.set_page_config(
