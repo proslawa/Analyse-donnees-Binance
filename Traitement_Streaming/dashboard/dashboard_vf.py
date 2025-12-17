@@ -10,16 +10,14 @@ import numpy as np
 from PIL import Image
 
 # ================= CONFIG =================
-DB_URL = (
-    f"postgresql+psycopg2://{st.secrets['DB_USER']}:"
-    f"{st.secrets['DB_PASSWORD']}@"
-    f"{st.secrets['DB_HOST']}:"
-    f"{st.secrets['DB_PORT']}/"
-    f"{st.secrets['DB_NAME']}"
-    "?sslmode=require"
-)
+DB_USER = st.secrets["DB_USER"]
+DB_PASSWORD = st.secrets["DB_PASSWORD"]
+DB_HOST = st.secrets["DB_HOST"]
+DB_PORT = st.secrets["DB_PORT"]
+DB_NAME = st.secrets["DB_NAME"]
 
-engine = create_engine(DB_URL, pool_pre_ping=True)
+DB_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+engine = create_engine(DB_URL)
 
 st.set_page_config(
     page_title="📊 Crypto Dashboard",
